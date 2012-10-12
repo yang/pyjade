@@ -104,7 +104,7 @@ class HTMLCompiler(pyjade.compiler.Compiler):
             self.buf.append(val)
         if code.block:
             self.visit(code.block)
-        if not code.buffer and not code.block:
+        elif not code.buffer:
             exec code.val.lstrip() in self.global_context, self.local_context
 
     def visitEach(self, each):
